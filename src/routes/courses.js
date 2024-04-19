@@ -21,7 +21,7 @@ export default (app, { db }) => {
     const { title, description } = req.body;
 
     const stmt = db.prepare('INSERT INTO courses (title, description) VALUES(?, ?)');
-    stmt.run( title, description );
+    stmt.run(title, description);
     stmt.finalize();
 
     req.flash('success', 'Курс успешно создан');
@@ -62,7 +62,7 @@ export default (app, { db }) => {
     const stmt = db.prepare('UPDATE courses SET title = ?, description = ? WHERE id = ?');
     stmt.run(title, description, id, (err) => {
       if (err) {
-        console.log({err});
+        console.log({ err });
         res.send(err);
       }
     });
@@ -73,12 +73,14 @@ export default (app, { db }) => {
 
   app.delete('/courses/:id', (req, res) => {
     const { id } = req.params;
-    db.run(`DELETE FROM courses WHERE id = ${id};`, (err) => {
+    const stmt = db.prepare('DELETE FROM courses WHERE id = ?');
+    stmt.run(id, (err) => {
       if (err) {
-        reply.send(err);
+        res.send(err);
         return;
       }
-      reply.redirect('/courses');
     });
+    stmt.finalize();
+    res.redirect('/courses');
   });
 };
