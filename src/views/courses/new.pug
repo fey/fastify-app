@@ -1,0 +1,14 @@
+extends ../layouts/page.pug
+
+block content
+  a(href=routes.coursesPath()) Назад
+  h1 Создать курс
+  form(action = routes.coursesPath(), method = 'post')
+    div
+      label Название
+        input(type = 'text', name = 'title', value = title)
+    div
+      label Описание
+        input(type = 'Text', name = 'description', value = description)
+
+    input(type = 'submit', value = 'Зарегистрировать')

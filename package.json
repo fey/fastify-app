@@ -1,0 +1,29 @@
+{
+  "name": "fastify-app",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/cookie": "^9.3.1",
+    "@fastify/flash": "^5.1.0",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/middie": "^8.3.0",
+    "@fastify/session": "^10.7.2",
+    "@fastify/view": "^9.0.0",
+    "fastify": "^4.26.2",
+    "fastify-cli": "^6.1.1",
+    "fastify-method-override": "^1.5.10",
+    "lodash": "^4.17.21",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2",
+    "sanitize-html": "^2.13.0",
+    "sqlite3": "^5.1.7",
+    "yup": "^1.4.0"
+  }
+}

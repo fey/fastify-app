@@ -1,0 +1,18 @@
+extends ../layouts/page.pug
+
+block content
+  a(href='/') На главную
+  h1= header
+  if error
+    p= error.message
+  div
+    a(href=routes.courseNewPath()) Новый курс
+  if courses.length === 0
+    p Пока не добавлено ни одного курса
+  else
+    each course in courses
+      div
+        h2
+          a(href=routes.coursePath(course.id))= course.title
+        a(href=routes.courseEditPath(course.id)) Редактировать
+        p= course.description

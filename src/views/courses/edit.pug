@@ -1,0 +1,15 @@
+extends ../layouts/page.pug
+
+block content
+  a(href=routes.coursesPath()) Назад
+  h1 Редактирование курса
+  form(action = routes.coursePath(course.id), method = 'post')
+    input(type = 'hidden', name="_method" value="put")
+    div
+      label Название
+        input(type = 'text', name = 'title', value = course.title)
+    div
+      label Описание
+        input(type = 'Text', name = 'description', value = course.description)
+
+    input(type = 'submit', value = 'Обновить')

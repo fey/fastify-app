@@ -1,0 +1,18 @@
+//- src/views/users/index.pug
+extends ../layouts/page.pug
+
+block content
+  a(href='/users/new') New User
+
+  table
+    tr
+      th= Name
+      th= Email
+      th= Actions
+    each user in users
+      tr
+        td= user.name
+        td= user.email
+        td
+          a(href=routes.userPath(user.id)) Show
+          a(href=routes.userEditPath(user.id)) Edit

@@ -1,0 +1,14 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+  body
+    each messages, type in reply.flash() || []
+      each message in messages
+        .alert(class=`alert-${type}`)
+          = message
+
+    p
+      a(href='/users')
+      a(href='/courses')
+      block content
